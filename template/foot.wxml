@@ -1,0 +1,8 @@
+<template name="foot">
+    <view class="footerview">  
+    <text >@2019 像素小站</text>
+    </view>
+    <view class="footerviewwebsite">  
+    <text style>fxpixels.site</text>
+    </view>
+</template>

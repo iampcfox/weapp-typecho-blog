@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "wux-icon": "../../dist/wux/icon/index",
+        "wux-badge": "../../dist/wux/badge/index",
+        "wux-tabbar": "../../dist/wux/tabbar/index",
+        "wux-tabbar-item": "../../dist/wux/tabbar-item/index",
+        "wux-refresher": "../../dist/wux/refresher/index",
+        "van-tab": "../../dist/vant/tab/index",
+        "van-tabs": "../../dist/vant/tabs/index"
+    }
+}
