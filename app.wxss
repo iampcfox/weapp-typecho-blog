@@ -119,7 +119,7 @@ radio-group {
 
 .view_section {
         padding-bottom: 2rpx;
-        margin-left: 20rpx;
+
 }
 
 .view_section.section_actors {
@@ -223,14 +223,14 @@ radio-group {
 }
 
 .navigator_item {
-        height: calc(100% - 30rpx); 
+        height: 70px; 
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         background-color: rgb(122, 122, 122);
         background-position: 50% 0%;
-        margin: 15rpx 0rpx 15rpx 20rpx;
+        /* margin: 15rpx 0rpx 15rpx 20rpx; */
         border-radius: 10rpx;
 }
 

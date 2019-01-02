@@ -29,16 +29,16 @@ Page({
         selectedIcon: '',
         path: '',
       },
-      {
-        key: 1,
-        title: '排行',
-        icon: '',
-        selectedIcon: '',
-        path: ''
-      },
+      // {
+      //   key: 1,
+      //   title: '排行',
+      //   icon: '',
+      //   selectedIcon: '',
+      //   path: ''
+      // },
       {
         key: 2,
-        title: '排行',
+        title: '关于',
         icon: '',
         selectedIcon: '',
         path: ''

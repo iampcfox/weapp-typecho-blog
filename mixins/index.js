@@ -23,7 +23,7 @@ module.exports = {
     swipelist: [],
     topswiper: 'none',
     midposts: 'none',
-    allcatslist: [],
+    indexAllcatslist: [],
     allcatpostlist: [],
     current_cat: 0,
     current_position: 'mid_99999999',
@@ -47,98 +47,93 @@ module.exports = {
       }
     })
   },
-  touchmove(e) {},
   fetchallcats() {
     var that = this;
     Net.request({
       url: API.GetCat(),
       success: function (res) {
+        console.log(res)
         var datas = res.data.data;
-        that.data.allcatslist = datas.map(function (item) {
+        datas = datas.map(function (item) {
           item.id_tag = "mid_" + item.mid;
           return item;
         });
-        that.data.allcatpostlist = datas.map(function (item) {
-          return null;
-        });
-        if (that.data.allcatslist.length > 0) {
-          that.changeCatex(that.data.allcatslist[0].mid);
-        }
+
         that.setData({
-          allcatslist: that.data.allcatslist
+          indexAllcatslist: datas
         })
+
+        // that.data.allcatpostlist = datas.map(function (item) {
+        //   return null;
+        // });
+        // if (that.data.allcatslist.length > 0) {
+        //   that.changeCatex(that.data.allcatslist[0].mid);
+        // }
+        // that.setData({
+        //   allcatslist: that.data.allcatslist
+        // })
       }
     })
   },
-  fetchpostbymid(mid) {
+  // getmidindex(mid) {
+  //   for (var i = 0; i < this.data.allcatslist.length; i++)
+  //     if (mid == this.data.allcatslist[i].mid) {
+  //       return i;
+  //     }
+  // },
+  fetchpostbymid(mid = 99999999) {
     var that = this;
-    var idx = this.getmidindex(mid);
+    // var idx = this.getmidindex(mid);
+
     Net.request({
       url: API.GetPostsbyMID(mid),
       success: function (res) {
         var datas = res.data.data;
-        if (datas != null && datas != undefined) {
-          that.data.allcatpostlist[idx] = datas.map(function (item) {
-            item.posttime = API.getcreatedtime(item.created);
-            return item;
-          });
+        console.log(res)
           that.setData({
-            allcatpostlist: that.data.allcatpostlist,
-            postheight: that.data.allcatpostlist[idx].length * 170 + 'rpx'
+            allcatpostlist: datas,
           })
-        } else {
-          wx.showToast({
-            title: '该分类没有文章',
-            image: '../../resources/error1.png',
-            duration: 2000
-          })
-        }
-      }
-    })
-  },
-  getmidindex(mid) {
-    for (var i = 0; i < this.data.allcatslist.length; i++)
-      if (mid == this.data.allcatslist[i].mid) {
-        return i;
-      }
-  },
-  change_finish(e) {
-    var that = this;
-    if (e.detail.current != this.data.current_cat) {
-      this.changeCatex(this.data.allcatslist[e.detail.current].mid);
-      this.setData({
-        current_cat: e.detail.current,
-        current_position: that.data.allcatslist[e.detail.current].id_tag
-      })
 
-    }
-  },
-  changeCat(e) {
-    this.data.current_cat_mid = e.target.dataset.mid;
-    var idx = this.getmidindex(this.data.current_cat_mid);
-    if (idx != this.data.current_cat) {
-      this.setData({
-        current_cat: idx
-      })
-      this.changeCatex(this.data.current_cat_mid);
-    }
-  },
-  changeCatex(mid) {
-    this.setData({
-      catpostlist: []
+      }
     })
-    this.data.allcatslist = this.data.allcatslist.map(function (item) {
-      if (item.mid == mid)
-        item.active = true;
-      else
-        item.active = false;
-      return item;
-    })
-    this.setData({
-      allcatslist: this.data.allcatslist
-    })
-    this.fetchpostbymid(mid);
   },
+  // change_finish(e) {
+  //   var that = this;
+  //   if (e.detail.current != this.data.current_cat) {
+  //     this.changeCatex(this.data.allcatslist[e.detail.current].mid);
+  //     this.setData({
+  //       current_cat: e.detail.current,
+  //       current_position: that.data.allcatslist[e.detail.current].id_tag
+  //     })
+
+  //   }
+  // },
+  // changeCat(e) {
+  //   this.data.current_cat_mid = e.target.dataset.mid;
+  //   var idx = this.getmidindex(this.data.current_cat_mid);
+  //   if (idx != this.data.current_cat) {
+  //     this.setData({
+  //       current_cat: idx
+  //     })
+  //     this.changeCatex(this.data.current_cat_mid);
+  //   }
+  // },
+  // changeCatex(mid) {
+  //   this.setData({
+  //     catpostlist: []
+  //   })
+  //   this.data.allcatslist = this.data.allcatslist.map(function (item) {
+  //     if (item.mid == mid)
+  //       item.active = true;
+  //     else
+  //       item.active = false;
+  //     return item;
+  //   })
+  //   this.setData({
+  //     allcatslist: this.data.allcatslist
+  //   })
+  //   this.fetchpostbymid(mid);
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -164,8 +159,8 @@ module.exports = {
     });
     this.fetchposts();
     this.fetchallcats();
+    this.fetchpostbymid()
   },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

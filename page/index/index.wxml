@@ -2,9 +2,10 @@
 <import src="../../template/index.wxml"></import>
 <import src="../../template/cat.wxml"></import>
 <import src="../../template/about.wxml"></import>
+
 <view>
     <view wx:if="{{wuxTabBarCurrent == 0}}">
-        <template is="index" data="{{postslist,swipelist,topswiper,midposts,allcatslist,allcatpostlist,current_cat,current_position,postheight}}"></template>
+        <template is="index" data="{{postslist,swipelist,topswiper,midposts,indexAllcatslist,allcatpostlist,current_cat,current_position,postheight}}"></template>
     </view>
     <view wx:elif="{{wuxTabBarCurrent == 1}}">
         <template is="cat" data="{{allcatslist,catpostlist,ranklist,active_idx,windowHeight,current_cat_mid,searchkeyword,allrankpostlist}}"></template>
@@ -13,6 +14,7 @@
         <template is="about" data="{{zannum,item,vcomment,commentlist,thispath,cid,hiddenmodalput,replaycoid,replaycontent,zanimg,likelist,createdtime,replytxt,cmplaceholder,focus,cmtext,replyauthor,qrcode_temp,painting,cmbtnclick,resendUrl,aboutstr}}"></template>
     </view>
 </view>
+
 <view id="tabbar">
     <wux-tabbar default-current="{{wuxTabBarCurrent}}" bind:change="wuxTabbarChange">
         <wux-tabbar-item wx:for="{{wuxTabBar}}" wx:key="{{item.key}}" key="{{item.key}}" title="{{item.title}}">
