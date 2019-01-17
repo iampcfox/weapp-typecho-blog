@@ -5,7 +5,7 @@
 
 <view>
     <view wx:if="{{wuxTabBarCurrent == 0}}">
-        <template is="index" data="{{postslist,swipelist,topswiper,midposts,indexAllcatslist,allcatpostlist,current_cat,current_position,postheight}}"></template>
+        <template is="index" data="{{postslist,swipelist,topswiper,midposts,indexAllcatslist,allcatpostlist,current_cat,current_position,postheight,scrollTop}}"></template>
     </view>
     <view wx:elif="{{wuxTabBarCurrent == 1}}">
         <template is="cat" data="{{allcatslist,catpostlist,ranklist,active_idx,windowHeight,current_cat_mid,searchkeyword,allrankpostlist}}"></template>

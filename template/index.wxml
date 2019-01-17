@@ -7,7 +7,7 @@
         <wux-icon color="#ADADAD" size="22" type="md-search" />
       </view>
     </view>
-    <view class="index-swiper" style="display:{{topswiper}}">
+    <!-- <view class="index-swiper" style="display:{{topswiper}}">
       <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{2000}}">
         <block wx:key="id" wx:for="{{swipelist}}">
           <swiper-item>
@@ -15,8 +15,8 @@
           </swiper-item>
         </block>
       </swiper>
-    </view>
-    <view class="category">
+    </view> -->
+    <!-- <view class="category">
       <view class="cat-item" wx:for="{{indexAllcatslist}}" wx:key="{{item}}">
         <view class="cat-image">img</view>
         <view>
@@ -24,26 +24,69 @@
           <view class="cat-desc">{{item.description}}</view>
         </view>
       </view>
+    </view> -->
+    <view>
+      <van-tabs animated="{{true}}" swipeable="{{true}}">
+        <van-tab wx:for="{{indexAllcatslist}}" wx:key="{{item}}" title="{{item.name}}"></van-tab>
+      </van-tabs>
+
+      <view>
+        <wux-refresher id="wux-refresher" scrollTop="{{scrollTop}}" bindrefresh="onRefresh" bindloadmore="onLoadmore">
+          1231564
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132</view>
+          <view>132132-----</view>
+        </wux-refresher>
+      </view>
     </view>
-    <view class="index-hot">
+    <!-- <view class="index-hot">
       <view class="index-hot-title">
         <text>热门文章</text>
         <text>更多 »</text>
       </view>
       <view class="index-hot-list">
-        <view class="index-hot-item" wx:for="{{allcatpostlist}}" wx:key="{{item}}" >
+        <view class="index-hot-item" wx:for="{{allcatpostlist}}" wx:key="{{item}}">
           <image mode="aspectFit" src="{{item.thumb[0].str_value}}"></image>
           <view>
             <view class="index-hot-item-title">{{item.title}}</view>
             <view class="index-hot-item-desc">{{1233}}</view>
             <view class="index-hot-item-info">
-              <wux-icon color="#ADADAD" size="14" type="md-eye" /> 
+              <wux-icon color="#ADADAD" size="14" type="md-eye" />
             </view>
           </view>
         </view>
       </view>
-    </view>
-    <view class="scroll_box">
+    </view> -->
+    <!-- <view class="scroll_box">
       <scroll-view class="scroll-view_x" scroll-with-animation="True" scroll-into-view="{{current_position}}" scroll-x style="width: auto;overflow:hidden;">
         <block wx:for="{{allcatslist}}" wx:key="item">
           <view id="{{item.id_tag}}" class="item_list {{item.active? 'active':''}}" bindtap="changeCat" data-mid="{{item.mid}}">
@@ -51,7 +94,6 @@
           </view>
         </block>
       </scroll-view>
-    </view>
-
+    </view> -->
   </view>
 </template>

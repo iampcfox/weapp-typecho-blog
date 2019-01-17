@@ -1,3 +1,6 @@
+import baseComponent from '../helpers/baseComponent'
+import classNames from '../helpers/classNames'
+
 const getDefaultActiveKey = (elements) => {
     const target = elements.filter((element) => !element.data.disabled)[0]
     if (target) {
@@ -15,23 +18,20 @@ const getActiveKey = (elements, activeKey) => {
     return !activeKey ? defaultActiveKey : !activeKeyIsValid(elements, activeKey) ? defaultActiveKey : activeKey
 }
 
-Component({
-    externalClasses: ['wux-class'],
+baseComponent({
     relations: {
         '../tab/index': {
             type: 'child',
-            linked() {
-                this.changeCurrent()
-            },
-            linkChanged() {
-                this.changeCurrent()
-            },
-            unlinked() {
+            observer() {
                 this.changeCurrent()
             },
         },
     },
     properties: {
+        prefixCls: {
+            type: String,
+            value: 'wux-tabs',
+        },
         defaultCurrent: {
             type: String,
             value: '',
@@ -61,6 +61,19 @@ Component({
     data: {
         activeKey: '',
         keys: [],
+    },
+    computed: {
+        classes() {
+            const { prefixCls, direction, scroll } = this.data
+            const wrap = classNames(prefixCls, {
+                [`${prefixCls}--${direction}`]: direction,
+                [`${prefixCls}--scroll`]: scroll,
+            })
+
+            return {
+                wrap,
+            }
+        },
     },
     methods: {
         updated(value, condition) {

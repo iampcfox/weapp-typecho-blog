@@ -6,6 +6,8 @@ var API = require('../utils/api');
 var Tips = require('../utils/tips');
 var Net = require('../utils/net');
 
+import { $stopWuxRefresher, $stopWuxLoader } from '../dist/wux/index'
+
 // 获取全局应用程序实例对象
 var app = getApp();
 
@@ -27,7 +29,21 @@ module.exports = {
     allcatpostlist: [],
     current_cat: 0,
     current_position: 'mid_99999999',
-    postheight: '0'
+    postheight: '0',
+    scrollTop: 0,
+  },
+  onPageScroll(e){
+    this.setData({
+      scrollTop: e.scrollTop
+    })
+  },
+  onRefresh(){
+    console.log('refresh')
+    $stopWuxRefresher()
+  },
+  onLoadmore(){
+    console.log('loadmore')
+    $stopWuxLoader()
   },
   fetchposts() {
     var that = this;
