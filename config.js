@@ -1,4 +1,4 @@
-var domain = "blog.fxpixels.site/index.php"
+var domain = "blog.fxpixels.site"
 var name = "FxPixels"
 var API_SECRET = "fxpixels"
 

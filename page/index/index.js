@@ -7,6 +7,7 @@
 var ind = require('../../mixins/index.js')
 var cat = require('../../mixins/cat.js')
 var about = require('../../mixins/about.js')
+import { $stopWuxRefresher, $stopWuxLoader } from '../../dist/wux/index'
 
 // 获取全局应用程序实例对象
 var app = getApp();
@@ -45,6 +46,71 @@ Page({
       }
     ],
     wuxTabBarCurrent: 0,
+    testItems: [],
+    count: 10,
+  },
+  onLoad() {
+    let item = []
+    for (let i = 0; i < this.data.count; i++) {
+      let v = {
+        title: `项目-${i}`,
+        content: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。'
+      }
+      item.push(v)
+    }
+
+    this.setData({
+      testItems: item
+    })
+  },
+  onRefresh() {
+    console.log('onRefresh')
+    this.setData({
+      count: 10,
+    })
+    let item = []
+    for (let i = 0; i < this.data.count; i++) {
+      let v = {
+        title: `项目-${i}`,
+        content: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。'
+      }
+      item.push(v)
+    }
+
+    setTimeout(() => {
+      this.setData({
+        testItems: item,
+      })
+      $stopWuxRefresher()
+    }, 4000)
+  },
+  onLoadmore() {
+    console.log('onLoadmore')
+    let item = []
+    for (let i = this.data.count; i < this.data.count + 10; i++) {
+      let v = {
+        title: `项目-${i}`,
+        content: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。'
+      }
+      item.push(v)
+    }
+    setTimeout(() => {
+      this.setData({
+        testItems: [
+          ...this.data.testItems,
+          ...item
+        ],
+        count: this.data.count + 10
+      })
+
+      if (this.data.testItems.length < 30) {
+        $stopWuxLoader()
+      } else {
+        console.log('没有更多数据')
+        $stopWuxLoader('#wux-refresher', this, true)
+      }
+
+    }, 4000)
   },
   // getmidindex(mid) {
   //   for (var i = 0; i < this.data.allcatslist.length; i++)

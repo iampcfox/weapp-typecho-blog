@@ -29,42 +29,19 @@
       <van-tabs animated="{{true}}" swipeable="{{true}}">
         <van-tab wx:for="{{indexAllcatslist}}" wx:key="{{item}}" title="{{item.name}}"></van-tab>
       </van-tabs>
-
-      <view>
+      <view class="test-list">
         <wux-refresher id="wux-refresher" scrollTop="{{scrollTop}}" bindrefresh="onRefresh" bindloadmore="onLoadmore">
-          1231564
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132</view>
-          <view>132132-----</view>
+          <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">文字组合列表</view>
+            <view class="weui-panel__bd">
+              <view class="weui-media-box weui-media-box_text" wx:for="{{ testItems }}" wx:key="">
+                <view class="weui-media-box__title weui-media-box__title_in-text">
+                  {{ item.title }}
+                </view>
+                <view class="weui-media-box__desc">{{ item.content }}</view>
+              </view>
+            </view>
+          </view>
         </wux-refresher>
       </view>
     </view>

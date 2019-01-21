@@ -37,14 +37,14 @@ module.exports = {
       scrollTop: e.scrollTop
     })
   },
-  onRefresh(){
-    console.log('refresh')
-    $stopWuxRefresher()
-  },
-  onLoadmore(){
-    console.log('loadmore')
-    $stopWuxLoader()
-  },
+  // onRefresh(){
+  //   console.log('refresh')
+  //   $stopWuxRefresher()
+  // },
+  // onLoadmore(){
+  //   console.log('loadmore')
+  //   $stopWuxLoader()
+  // },
   fetchposts() {
     var that = this;
     Net.request({
@@ -68,7 +68,7 @@ module.exports = {
     Net.request({
       url: API.GetCat(),
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         var datas = res.data.data;
         datas = datas.map(function (item) {
           item.id_tag = "mid_" + item.mid;
@@ -105,7 +105,7 @@ module.exports = {
       url: API.GetPostsbyMID(mid),
       success: function (res) {
         var datas = res.data.data;
-        console.log(res)
+        // console.log(res)
           that.setData({
             allcatpostlist: datas,
           })

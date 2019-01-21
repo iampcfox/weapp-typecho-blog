@@ -58,6 +58,7 @@ baseComponent({
                 // 获取节点高度
                 const query = wx.createSelectorQuery();
                 query.select(`#${this.id}`).boundingClientRect(function (res) {
+                    // console.log(res)
                     that.setData({
                         newContentHeight: res.height
                     })
@@ -76,7 +77,7 @@ baseComponent({
 
                     // 到临界点时触发上拉加载 
                     // 防止节点高度一致时引发重复加载
-                    console.log(n)
+                    // console.log(n)
                     if (
                         n > newContentHeight - windowHeight - (distance * 1.5) &&
                         loading === false &&

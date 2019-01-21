@@ -5,12 +5,12 @@
         <image mode="widthFix" class="wx-image_movie_cover" src='{{item.thumb}}' />
     </view>
     <view class="minheight detail_info" style="min-height: 110px;">
-        <view class="minheight detail_like_btn" style="background-color:ffffff" bindtouchstart="zanstart">
+        <!-- <view class="minheight detail_like_btn" style="background-color:ffffff" bindtouchstart="zanstart">
             <image style="width: 50rpx;height: 50rpx;vertical-align: middle;" mode="scaleToFill" src="{{zanimg}}"></image>
             <text style="font-size: 12px;text-align: center; color: rgb(153, 153, 153);">
                 {{item.likes}}人赞
             </text>
-        </view>
+        </view> -->
         <text class="m-block text_title">{{item.title}}</text>
         <view style="margin-left: 1px; margin-bottom: 5rpx;">
             <image class="listpg_first_img" src="../../resources/time.png"></image>

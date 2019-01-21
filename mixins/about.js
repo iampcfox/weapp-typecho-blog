@@ -28,7 +28,7 @@ module.exports = {
     vcomment: [],
     commentlist: [],
     thispath: 'page/detail/detail',
-    cid: 1,
+    cid: 0,
     hiddenmodalput:true,
     replaycoid: '',
     replaycontent: '',
@@ -61,9 +61,11 @@ module.exports = {
     Net.request({
       url: API.GetAboutCid(),
       success: function(res) {
+        // console.log(res)
         var datas = res.data.data;
         if(API.IsNull(datas)) {
           if(datas != 'none') {
+            // console.log(datas)
             that.data.cid = datas;
             that.getdetails(that.data.cid);
             }
@@ -102,7 +104,10 @@ module.exports = {
       url: API.GetPagebyCID(cid),
       success: function(res) {
         var datas = res.data.data;
+        // console.log('about')
+        // console.log(datas)
         var parsed_item = API.ParseItem(datas[0]);
+        // console.log(parsed_item)
         var data = parsed_item.text.replace(/!!!/g,"");
         let data_parse = app.towxml.toJson(data,'markdown');
         that.setData({

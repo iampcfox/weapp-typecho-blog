@@ -102,6 +102,7 @@ module.exports = {
       success: function(res) {
         var datas = res.data.data;
         var rank = 1;        
+        // console.log('cat')
         that.data.allrankpostlist[idx] = datas.map(function (ori_item){
           var item = API.ParseItem(ori_item);
           item.posttime = API.getcreatedtime(item.created);

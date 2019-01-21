@@ -172,6 +172,7 @@ module.exports = {
         return(gb_str + mb_str + kb_str + b_str);
     },
     ParseItem: function(ori_item) {
+        // console.log(ori_item)
         var that = this;
         var post_date = {
             year: ori_item.year,

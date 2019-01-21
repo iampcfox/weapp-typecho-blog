@@ -98,11 +98,11 @@ radio-group {
         justify-content: center;
         margin-top: 100;
         float: right;
-        box-shadow: 0px 0px 3px 3px rgba(171, 171, 171, 0.8);
+        /* box-shadow: 0px 0px 3px 3px rgba(171, 171, 171, 0.8);
         -ms-box-shadow: 0px 0px 3px 3px rgba(171, 171, 171, 0.8);
         -o-box-shadow: 0px 0px 3px 3px rgba(171, 171, 171, 0.8);
         -moz-box-shadow: 0px 0px 3px 3px rgba(171, 171, 171, 0.8);
-        -webkit-box-shadow: 0px 0px 3px 3px rgba(171, 171, 171, 0.8);
+        -webkit-box-shadow: 0px 0px 3px 3px rgba(171, 171, 171, 0.8); */
 }
 
 .text_title {
@@ -111,10 +111,10 @@ radio-group {
         font-family: "andale mono";
         font-weight: 600;
         margin-bottom: 10px;
-        border-left-width: 8rpx;
-        border-left-style: solid;
-        border-left-color: #a70101;
-        padding-left: 20rpx;
+        /* border-left-width: 8rpx; */
+        /* border-left-style: solid; */
+        /* border-left-color: #a70101; */
+        /* padding-left: 20rpx; */
 }
 
 .view_section {
